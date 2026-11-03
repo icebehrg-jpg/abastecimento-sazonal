@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>R.V.P - Mockup Abastecimento</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+         :root {
+            --kl-blue: #1f9bd1;
+            --kl-dark: #111;
+            --kl-green: #1fa463;
+            --kl-head: #e9ecef;
+        }
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            background: #f4f4f4;
+        }
+        
+        .topbar {
+            background: var(--kl-dark);
+            color: #fff;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            gap: 18px;
+            position: sticky;
+            top: 0;
+            z-index: 1030
+        }
+        
+        .topbar .logo {
+            font-weight: 900;
+            font-style: italic;
+            font-size: 24px;
+            letter-spacing: -1px
+        }
+        
+        .topbar .logo small {
+            color: #f2b705;
+            font-size: 10px;
+            font-style: normal;
+            margin-left: 2px
+        }
+        
+        .topbar .nav-ind {
+            display: flex;
+            gap: 16px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: bold;
+            font-size: 13px
+        }
+        
+        .topbar .nav-ind span {
+            position: relative
+        }
+        
+        .topbar .nav-ind .cnt {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #555;
+            border-radius: 10px;
+            padding: 0 7px;
+            font-size: 10px
+        }
+        
+        .sq {
+            display: inline-block;
+            width: 11px;
+            height: 11px;
+            margin-right: 5px;
+            background: #d9232d;
+            vertical-align: middle
+        }
+        
+        .sq.ok {
+            background: #1fa463
+        }
+        
+        .user {
+            text-align: right;
+            line-height: 1.2
+        }
+        
+        .user .loja {
+            background: #f2b705;
+            color: #000;
+            border-radius: 8px;
+            padding: 1px 8px;
+            font-size: 10px;
+            font-weight: bold
+        }
+        
+        .resumo th {
+            background: var(--kl-head);
+            text-align: center;
+            font-size: 12px
+        }
+        
+        .resumo td {
+            padding: 1px 6px !important;
+            font-size: 11px
+        }
+        
+        .num {
+            text-align: right
+        }
+        
+        .blue {
+            color: #1f6fb5
+        }
+        
+        .red {
+            color: #c00
+        }
+        
+        .grey {
+            color: #888
+        }
+        
+        .panel {
+            background: #fff;
+            border-top: 3px solid var(--kl-blue);
+            padding: 10px 14px;
+            margin-top: 8px
+        }
+        
+        .panel label.lbl {
+            font-size: 12px;
+            font-weight: 600;
+            color: #333;
+            display: block;
+            margin-bottom: 2px
+        }
+        
+        .form-select-sm,
+        .form-control-sm {
+            font-size: 12px
+        }
+        
+        .btn-for {
+            background: var(--kl-blue);
+            color: #fff;
+            border-radius: 0
+        }
+        
+        .btn-fab {
+            background: #ddd;
+            border-radius: 0
+        }
+        
+        .badges .badge {
+            font-size: 12px;
+            margin-left: 3px
+        }
+        
+        .linksbar a {
+            color: var(--kl-blue);
+            text-decoration: none;
+            font-size: 13px;
+            margin-right: 4px
+        }
+        
+        .linksbar .sep {
+            color: #999;
+            margin: 0 6px
+        }
+        
+        .filters-box {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 8px
+        }
+        
+        table.rvp {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff
+        }
+        
+        table.rvp th,
+        table.rvp td {
+            border: 1px solid #e3e3e3;
+            padding: 3px 4px;
+            text-align: center;
+            font-size: 12px;
+            white-space: nowrap
+        }
+        
+        table.rvp thead th {
+            background: var(--kl-head);
+            font-weight: bold
+        }
+        
+        .th-pill {
+            display: inline-block;
+            border-radius: 3px;
+            padding: 0 6px;
+            color: #fff;
+            background: #bbb;
+            font-size: 11px
+        }
+        
+        .th-pill.g {
+            background: var(--kl-green)
+        }
+        
+        .prod {
+            margin-top: 14px;
+            background: #fff;
+            border: 1px solid #ddd
+        }
+        
+        .prod-head {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 6px 8px;
+            flex-wrap: wrap
+        }
+        
+        .prod-head .title {
+            font-weight: bold;
+            font-size: 13px
+        }
+        
+        .prod-head .ico {
+            display: flex;
+            gap: 4px;
+            margin-left: auto
+        }
+        
+        .prod-head .ico span {
+            width: 26px;
+            height: 22px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 3px;
+            background: #555;
+            color: #fff;
+            font-size: 12px
+        }
+        
+        .prod-head .ico .g {
+            background: var(--kl-green)
+        }
+        
+        .prod-head .ico .o {
+            background: #e08e0b
+        }
+        
+        .prod-head .ico .m {
+            background: #c2185b
+        }
+        
+        .proj {
+            color: #1f6fb5
+        }
+        
+        .row-va td {
+            font-size: 11px
+        }
+        
+        .row-espelho td {
+            background: #fff8e1
+        }
+        
+        .row-grupo td {
+            background: #eef7ff
+        }
+        /* NOVA FUNÇÃO */
+        
+        .abast {
+            background: #e6f4fb;
+            border-top: 2px solid var(--kl-blue);
+            padding: 8px 10px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 14px
+        }
+        
+        .abast .tit {
+            font-weight: bold;
+            color: #0d5c86
+        }
+        
+        .abast .form-check {
+            margin: 0
+        }
+        
+        .abast .form-check-label {
+            font-size: 12px;
+            color: #0d5c86;
+            font-weight: 600
+        }
+        
+        .abast .form-check-input {
+            border-color: #1f9bd1
+        }
+        
+        .abast .form-check-input:checked {
+            background-color: #1f9bd1;
+            border-color: #1f9bd1
+        }
+        
+        .abast .chk20 .form-check-label {
+            color: #146c43
+        }
+        
+        .abast .chk20 .form-check-input {
+            border-color: #1fa463
+        }
+        
+        .abast .chk20 .form-check-input:checked {
+            background-color: #1fa463;
+            border-color: #1fa463
+        }
+        
+        .espelho-box {
+            display: none;
+            align-items: center;
+            gap: 6px
+        }
+        
+        .espelho-box.show {
+            display: flex
+        }
+        
+        .espelho-box input {
+            width: 110px;
+            border-color: #e08e0b
+        }
+        
+        .esp-result {
+            font-size: 11px
+        }
+        
+        .reserva-info {
+            font-size: 11px;
+            color: #146c43
+        }
+        
+        .saved-tag {
+            font-size: 11px
+        }
+        
+        .prod.salvo {
+            border-left: 4px solid var(--kl-green)
+        }
+        
+        .prod.salvo .abast {
+            background: #e8f6ee;
+            border-top-color: var(--kl-green)
+        }
+        
+        .pagination .page-link {
+            font-size: 12px
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOPO -->
+    <div class="topbar">
+        <div class="logo">Kalunga<small>ERP</small></div>
+        <i class="bi bi-list fs-4"></i>
+        <div class="nav-ind">
+            <span><i class="sq"></i>Devoluções<b class="cnt">5</b></span>
+            <span>Inventario<b class="cnt">29</b></span>
+            <span><i class="sq"></i>Aceite NF<b class="cnt">2461</b></span>
+            <span><i class="sq"></i>Movimento<b class="cnt">12</b></span>
+            <span><i class="sq ok"></i>Infra</span>
+            <span><i class="sq"></i>Pickup<b class="cnt">153</b></span>
+            <span><i class="sq ok"></i>Etiquetas</span>
+        </div>
+        <div class="text-center" style="font-size:10px"><i class="bi bi-shop fs-6"></i><br>Lojas</div>
+        <div class="user"><b>Humberto Faria de Oliveira</b><br><span class="loja">0001 - SP - Mooca</span></div>
+        <i class="bi bi-gear-fill"></i>
+    </div>
+
+    <div class="container-fluid px-3 py-2">
+
+        <!-- RESUMO FORNECEDOR -->
+        <table class="table table-bordered table-sm resumo bg-white mb-0">
+            <thead>
+                <tr>
+                    <th>45.985.371/0001-08 3M</th>
+                    <th>Tipo</th>
+                    <th>Custo</th>
+                    <th>Venda</th>
+                    <th>Markup</th>
+                    <th>Contas Pagar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Gerente <span class="float-end blue">Camila Nicoletti</span></td>
+                    <td class="num blue">Compra</td>
+                    <td class="num blue">6.409.376,93</td>
+                    <td class="num blue">10.751.816,48</td>
+                    <td class="num blue">67,751 %</td>
+                    <td class="num blue">13.553.203,67</td>
+                </tr>
+                <tr>
+                    <td>Saldo Pedido <span class="float-end">3.657.370,95</span></td>
+                    <td class="num blue">Consig.</td>
+                    <td class="num blue">3.410.070,23</td>
+                    <td class="num blue">5.878.251,10</td>
+                    <td class="num blue">72,379 %</td>
+                    <td class="num blue">2.896.145,36</td>
+                </tr>
+                <tr>
+                    <td>Conserto <span class="float-end">403,00</span></td>
+                    <td class="num red">Total</td>
+                    <td class="num red"><small>(2,47 %)</small> 9.819.447,16</td>
+                    <td class="num red"><small>(2,21 %)</small> 16.630.067,58</td>
+                    <td class="num red">66,399 %</td>
+                    <td class="num red">16.449.349,03</td>
+                </tr>
+                <tr>
+                    <td>N.D Pendentes <span class="float-end">6.000,00</span></td>
+                    <td class="num grey">Total mês</td>
+                    <td class="num grey">(2,43 %) 62.343,41</td>
+                    <td class="num grey">(2,15 %) 104.580,44</td>
+                    <td class="num grey">67,750 %</td>
+                    <td class="num grey">8.448.961,51</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- FILTROS -->
+        <div class="panel">
+            <div class="row">
+                <!-- CABEÇALHO SOLICITADO -->
+                <div class="col-md-8" style="display: flex; flex-wrap: nowrap;">
+                    <div class="col-md-6">
+                        <div><label><input type="checkbox"> Cpfj</label> <label><input type="checkbox"> Nome</label></div>
+                        <div class="btn-group mt-1">
+                            <button class="btn btn-sm btn-for px-3 py-2">For</button>
+                            <button class="btn btn-sm btn-fab px-3 py-2">Fab</button>
+                        </div>
+                    </div>
+                    <div class="col-md-3 px-1" style="min-width:160px">
+                        <label class="lbl">Fornecedor <input type="checkbox"> Todos</label>
+                        <select class="form-select form-select-sm"><option>3M (45.985.371/0001-08)</option></select>
+                    </div>
+                    <div class="col-md-3 px-1">
+                        <label class="lbl">Departamento</label>
+                        <select class="form-select form-select-sm"><option></option><option>Papelaria</option></select>
+                    </div>
+                    <div class="col-md-3 px-1">
+                        <label class="lbl">Grupo</label>
+                        <select class="form-select form-select-sm" id="fGrupo"><option value="">Todos</option><option>76x76</option><option>76x102</option><option>38x50</option><option>47,6x47,6</option></select>
+                    </div>
+                    <div class="col-md-3 px-1">
+                        <label class="lbl">Tipo Produto</label>
+                        <select class="form-select form-select-sm"><option></option></select>
+                    </div>
+                    <div class="col-md-3 px-1">
+                        <label class="lbl">Produto</label>
+                        <input class="form-control form-control-sm" id="fProduto" placeholder="Código / desc.">
+                    </div>
+                    <div class="col-md-3 px-1 pt-3">
+                        <label><input type="checkbox"> Sem min/max</label>
+                    </div>
+                </div>
+                <div class="col-md-4 text-end">
+                    <div class="badges">
+                        <span class="badge" style="background:#e08e0b">CD 4443</span>
+                        <span class="badge" style="background:#d9232d">CD 1776</span>
+                        <span class="badge" style="background:#c2185b">AB + 124</span>
+                        <span class="badge" style="background:#c2185b">LZ 8568</span>
+                    </div>
+                    <div class="mt-2">Qtd. SKU:914 | Ativos:<span class="text-success">142</span> | Descont.:<span class="text-warning">26</span> | Outlet: <span class="text-warning">13</span> | Inativos:722 | Lanc.:<span class="blue">11</span></div>
+                    <div class="mt-2">Paginas:1 / 4 | Filtros <i class="bi bi-caret-up-fill"></i></div>
+                </div>
+            </div>
+
+            <div class="linksbar mt-2">
+                <a href="#">Pedido <span class="badge bg-danger rounded-pill">14</span> +</a><span class="sep">|</span>
+                <a href="#">Consignado <span class="badge bg-warning rounded-pill">1</span></a><span class="sep">|</span>
+                <a href="#">Créditos</a><span class="sep">|</span><a href="#">Gôndola</a><span class="sep">|</span>
+                <a href="#">Tabela de Preço</a><span class="sep">|</span><a href="#">Embalagens</a><span class="sep">|</span>
+                <a href="#">Contatos</a><span class="sep">|</span><a href="#">Desativar NeoGrid</a>
+            </div>
+
+            <div class="filters-box row g-2 align-items-end">
+                <div class="col-auto"><label class="lbl">Visualizar</label><select class="form-select form-select-sm"><option>Produtos</option></select></div>
+                <div class="col-auto"><label class="lbl">Por</label><select class="form-select form-select-sm"><option>Quantidade</option><option>Valor</option></select></div>
+                <div class="col-auto"><label class="lbl">Ordenar</label><select class="form-select form-select-sm" id="fOrdem"><option value="cod">Código</option><option value="tot">Venda 2026</option><option value="cd">Estoque CD</option></select></div>
+                <div class="col-auto"><label class="lbl">Status Produtos</label><select class="form-select form-select-sm"><option>Ativo</option></select></div>
+                <div class="col-auto"><label class="lbl">UF</label><select class="form-select form-select-sm"><option></option><option>SP</option></select></div>
+                <div class="col-auto"><label class="lbl">Lojas</label><select class="form-select form-select-sm"><option></option></select></div>
+                <div class="col-auto"><label class="lbl">Ano(s)</label><select class="form-select form-select-sm"><option>2</option></select></div>
+                <div class="col-auto"><label class="lbl">Data início</label><input type="date" class="form-control form-control-sm"></div>
+                <div class="col-auto"><label class="lbl">Data fim</label><input type="date" class="form-control form-control-sm"></div>
+                <div class="col-auto"><a href="#" class="d-block blue fw-bold" id="btnAplicar">Aplicar Filtros</a><a href="#" class="d-block blue fw-bold" onclick="window.print()">Imprimir</a></div>
+                <div class="col-auto ms-auto"><button class="btn btn-success btn-sm" id="btnSalvarTodos"><i class="bi bi-save"></i> Salvar todos</button></div>
+            </div>
+        </div>
+
+        <nav class="d-flex justify-content-center my-2">
+            <ul class="pagination pagination-sm mb-0">
+                <li class="page-item"><a class="page-link">Primeira</a></li>
+                <li class="page-item active"><a class="page-link">1</a></li>
+                <li class="page-item"><a class="page-link">2</a></li>
+                <li class="page-item"><a class="page-link">3</a></li>
+                <li class="page-item"><a class="page-link">4</a></li>
+                <li class="page-item"><a class="page-link">Ultima</a></li>
+            </ul>
+        </nav>
+
+        <!-- TOTAL FORNECEDOR -->
+        <table class="rvp mb-2">
+            <thead>
+                <tr>
+                    <th>Ano</th>
+                    <th>JAN</th>
+                    <th>FEV</th>
+                    <th>MAR</th>
+                    <th>ABR</th>
+                    <th>MAI</th>
+                    <th>JUN</th>
+                    <th>JUL</th>
+                    <th>AGO</th>
+                    <th>SET</th>
+                    <th>OUT</th>
+                    <th>NOV</th>
+                    <th>DEZ</th>
+                    <th>TOT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2025</td>
+                    <td>6.632.172</td>
+                    <td>4.389.126</td>
+                    <td>3.489.610</td>
+                    <td>3.245.548</td>
+                    <td>3.492.088</td>
+                    <td>3.291.773</td>
+                    <td>3.369.860</td>
+                    <td>3.530.951</td>
+                    <td>3.350.790</td>
+                    <td>3.461.953</td>
+                    <td>3.262.665</td>
+                    <td>3.672.037</td>
+                    <td>45.188.573</td>
+                </tr>
+                <tr>
+                    <td>2026</td>
+                    <td>5.839.093</td>
+                    <td>3.545.448</td>
+                    <td>3.411.481</td>
+                    <td>2.962.489</td>
+                    <td>3.249.618</td>
+                    <td>2.989.449</td>
+                    <td>3.183.449</td>
+                    <td>2.902.413</td>
+                    <td>2.890.313</td>
+                    <td>3.075.824</td>
+                    <td>104.580</td>
+                    <td>0</td>
+                    <td>34.154.158</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div id="lista"></div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="toast" class="toast text-bg-success border-0">
+            <div class="d-flex">
+                <div class="toast-body" id="toastMsg">Salvo</div><button class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    <script>
+        /* ===== DADOS (extraídos da tela RVP – 3M) =====
+         formato: cod|descrição|subgrupo|compra|P,M,S,V|badge|estrela|2025 (12 meses + DEV)|2026 (12 meses + DEV)|RES,EST,CD,PED,TRAN,REV,MIN,MAX,AB,SALDO|V.A. (min%,min,max,max%) */
+        const RAW = `
+040710|Bloco autoadesivo 76x76 azul aqua c/90fls HB00465019 CX 1 UN|76x76|Compra - 29/09/2026|0,41,0,169|2|5|1451,682,348,268,260,242,203,237,168,173,187,226,10|1252,420,277,180,155,142,145,222,131,140,8,226,15|0,2110,627,4,19,3,286,668,0,0|142,693,1772,165
+040711|Bloco autoadesivo 76x76 lilac c/90fls HB00465721 CX 1 UN|76x76|Compra - 29/09/2026|0,210,1,0|0|5|9554,3688,1856,1430,1376,1111,908,865,759,733,836,1456,68|8250,2632,1456,810,686,533,641,713,502,611,28,1456,59|0,13208,2376,0,1,2,641,1542,0,0|576,4336,10958,611
+040712|Bloco autoadesivo 76x76 azul elétrico c/90fls HB00465024 CX 1 UN|76x76|Compra - 29/09/2026|0,43,0,168|2|5|1344,761,480,470,436,363,431,358,400,283,361,423,27|1501,587,485,335,309,211,354,273,232,217,2,423,16|0,2853,1125,0,5,1,418,972,0,0|102,846,2125,119
+040713|Bloco autoadesivo 76x102 rosa milênio c/90fls HB00465717 CX 1 UN|76x102|Compra - 29/09/2026|0,20,0,190|2|5|897,400,202,254,314,234,279,275,229,267,247,304,21|1185,385,374,290,293,175,233,321,191,301,5,304,26|0,2174,794,26,28,1,423,945,0,0|65,698,1745,85
+040714|Bloco autoadesivo 76x102 lilac c/90fls HB00465722 CX 1 UN|76x102|Compra - 29/09/2026|0,84,0,126|1|5|1954,892,462,459,455,407,371,466,373,368,404,474,27|2134,822,680,425,431,270,376,368,313,374,9,474,36|0,3733,1297,2,26,1,439,1053,0,0|175,1208,3099,194
+040715|Bloco autoadesivo 76x102 pink c/90fls HB00465718 CX 1 UN|76x102|Compra - 29/09/2026|0,1,0,210|3|5|510,390,376,353,306,330,267,321,332,514,312,295,23|633,397,423,328,306,257,298,311,257,252,4,295,43|0,1635,703,31,20,3,350,887,0,0|65,579,1386,56
+040716|Bloco autoadesivo 76x102 vd limeade c/90fls HB00465710 CX 1 UN|76x102|Compra - 29/09/2026|0,1,0,210|3||378,331,317,303,298,353,223,318,343,343,336,278,25|526,354,368,314,296,242,264,234,227,276,6,278,22|0,1299,469,3,45,3,461,1086,0,0|
+040717|Bloco autoadesivo 76x102 azul aqua c/90fls HB00465540 CX 1 UN|76x102|Compra - 29/09/2026|0,4,0,206|1|5|566,327,293,237,231,235,181,267,231,248,269,229,48|707,351,346,257,268,182,208,239,227,307,6,229,85|0,1557,552,10,30,0,329,830,0,0|75,575,1341,62
+040718|Bloco autoadesivo Post-it 76x102 laranja c/90fls PT 1 UN|76x102|Compra - 29/09/2026|0,1,0,210|5|5|363,323,328,351,302,320,251,294,278,421,209,200,26|353,347,332,251,235,197,231,236,206,197,4,200,48|0,1313,638,24,40,0,359,936,0,0|
+040720|Bloco autoadesivo Post-it 38x50 rs/vd c/100fls 653 PT 4 UN|38x50|Compra - 29/09/2026|0,16,0,195|3|4.6|3402,1360,734,613,670,491,619,699,673,514,452,639,67|3058,1255,844,725,759,565,776,621,730,763,6,639,39|1,5071,1551,9,15,1,685,1645,0,0|162,1792,4531,175
+040723|Bloco Post-it 76x76mm sal rosa 90fls HB00476772 BL 1 UN|76x76|Compra - 29/09/2026|0,27,0,184|1|5|0,0,0,0,0,0,395,490,442,368,287,303,4|1411,678,548,414,449,321,433,388,298,340,9,303,18|0,2953,1518,11,5,2,442,1060,0,0|90,842,2083,97
+040725|Bloco autoadesivo Post-it 38x50 amarelo c/100fls 653 PT 4 UN|38x50|Compra - 29/09/2026|0,15,0,196|0|4.79|2977,2335,2053,1669,1820,1733,1632,2122,2101,2316,1803,1550,287|3000,1717,1922,1632,2216,1742,1927,1736,1546,1237,16,1550,257|17,10013,6570,22,7,0,1780,4421,0,0|46,2591,6472,46
+040731|Bloco autoadesivo Post-it 38x50 sortido c/50fls BT 4 UN|38x50|Compra - 29/09/2026|0,211,0,0|0|4.75|25021,12006,6437,9059,5941,4553,4414,4132,3804,3355,3268,5339,584|21791,8009,5073,3684,3213,2428,3278,3218,2491,2658,74,5339,283|6,39022,10562,0,0,1,3215,8104,0,0|274,12030,30078,271
+040740|Bloco Post-it 76x76mm amarelo canário 100fls PT 1 UN|76x76|Compra - 29/09/2026|0,7,0,204|0|4.6|3864,3083,2096,1926,2707,2042,2305,2263,2531,2585,2152,1982,543|5200,2209,2087,2409,2263,2473,2317,995,2261,2143,48,1982,353|14,12302,7128,49,106,74,1940,4823,0,0|89,3660,9143,90
+040743|Bloco autoadesivo Post-it 76x102 amarelo c/100fls 657 PT 1 UN|76x102|Compra - 29/09/2026|0,16,0,195|0|4.78|4350,3009,3158,2810,2896,2578,2705,2974,2907,2980,2416,2111,393|4298,2914,3041,2315,2666,2168,2535,2719,2153,2074,35,2111,346|0,14375,9879,53,99,0,2178,5422,0,0|57,3418,8527,57
+040932|Calendário autoadesivo 38x50 semanal c/2bl HB00460566 PT 1 UN|38x50|Consignado - 15/09/2026|0,25,0,186|1|3.8|1414,809,651,451,484,385,446,504,433,393,376,484,32|1144,634,450,437,462,386,371,475,383,255,12,484,28|0,2829,584,0,29,29,1281,3150,0,696|
+041022|Bloco autoadesivo Post-it 47,6x47,6mm 6 cores 45fls 835789 PT 6 UN|47,6x47,6|Compra - 29/09/2026|0,1,70,140|0||-|830,611,518,582,452,347,311,308,200,180,12,0,22|0,2661,1315,0,24,0,382,933,0,0|97,754,1856,99
+041046|Bloco autoadesivo Post-it 38x50 novas cores c/100fls 653 PT 4 UN|38x50|Compra - 15/10/2026|0,211,0,0|0|4.8|26305,12455,6619,5241,6431,5006,5356,5661,5828,6154,5137,4700,738|22879,9211,6482,5414,4588,4628,4696,3992,3676,3947,57,4700,799|11,42596,17872,0,37,0,4268,10686,0,0|187,12260,31826,198
+041067|Bloco autoadesivo Post-it 47,6x47,6 cubo verde PT 1 UN|47,6x47,6|Compra - 29/09/2026|0,1,0,210|2||600,383,326,344,282,261,324,348,340,364,291,281,25|552,290,220,189,215,219,118,169,97,110,1,281,22|0,1368,548,7,7,0,396,940,0,0|
+041078|Bloco autoadesivo Post-it 76x76 HB00465724 PT 5 UN|76x76|Compra - 29/09/2026|0,98,58,54|0|4.88|1952,1286,992,1089,996,864,983,1170,1022,947,1102,1142,164|2628,1223,1190,1060,1002,959,1270,674,774,675,13,1142,146|0,6178,3302,0,20,0,1078,2641,0,0|59,1716,4381,66
+041136|Bloco autoadesivo Post-it 76x76 pop-up az.céu c/90fls PT 1 UN|76x76|Compra - 29/09/2026|0,10,0,201|0|5|893,469,366,332,301,272,285,261,317,341,304,287,18|939,425,344,250,252,227,247,233,225,196,7,287,34|0,1984,764,0,9,2,439,952,0,0|51,665,1624,71
+`.trim().split('\n');
+
+        const n = s => s.split(',').map(Number);
+        const produtos = RAW.map(l => {
+            const [cod, desc, sub, compra, pmsv, badge, star, h25, h26, est, va] = l.split('|');
+            const a25 = h25 === '-' ? null : n(h25),
+                a26 = n(h26),
+                e = n(est);
+            return {
+                cod,
+                desc,
+                sub,
+                compra,
+                pmsv: n(pmsv),
+                badge,
+                star,
+                h25: a25 ? a25.slice(0, 12) : null,
+                dev25: a25 ? a25[12] : 0,
+                h26: a26.slice(0, 12),
+                dev26: a26[12],
+                res: e[0],
+                est: e[1],
+                cd: e[2],
+                ped: e[3],
+                tran: e[4],
+                rev: e[5],
+                min: e[6],
+                max: e[7],
+                ab: e[8],
+                saldo: e[9],
+                va: va ? n(va) : null,
+                cfg: {
+                    tipo: 'produto',
+                    espelho: null,
+                    reserva20: false,
+                    salvo: false
+                }
+            };
+        });
+        const MES_ATUAL = 10; // novembro (índice) – mês corrente, parcial
+        const sum = a => a.reduce((x, y) => x + y, 0);
+        const fmt = v => v.toLocaleString('pt-BR');
+        const MESES = ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ'];
+
+        function mediaGrupo(sub, exceto) {
+            const ps = produtos.filter(p => p.sub === sub && p.cod !== exceto);
+            if (!ps.length) return null;
+            return MESES.map((_, i) => Math.round(sum(ps.map(p => p.h26[i])) / ps.length));
+        }
+
+        function linhaHist(label, filial, arr, cls = '') {
+            return `<tr class="${cls}"><td>${label}</td><td>${filial}</td>${arr.map((v,i)=>`<td class="${label==='2026'&&i===11?'proj':''}">${v}</td>`).join('')}<td>${sum(arr)}</td>`;
+}
+
+function render(){
+  const g = document.getElementById('fGrupo').value;
+  const q = document.getElementById('fProduto').value.toLowerCase().trim();
+  const ord = document.getElementById('fOrdem').value;
+  let lista = produtos.filter(p => (!g || p.sub===g) && (!q || p.cod.includes(q) || p.desc.toLowerCase().includes(q)));
+  lista.sort((a,b)=> ord==='tot' ? sum(b.h26)-sum(a.h26) : ord==='cd' ? b.cd-a.cd : a.cod.localeCompare(b.cod));
+  document.getElementById('lista').innerHTML = lista.map(cardHTML).join('') || '<div class="alert alert-light mt-3">Nenhum produto encontrado.</div>';
+}
+
+function cardHTML(p){
+  const c = p.cfg, id = p.cod;
+  const tot26 = sum(p.h26.slice(0,11)), liq26 = tot26 - p.dev26;
+  let linhas = '';
+  if(p.h25){ const t=sum(p.h25); linhas += `<tr><td>2025</td><td>Geral</td>${p.h25.map(v=>`<td>${v}</td>`).join('')}<td>${t}</td><td>${p.dev25}</td><td>${t-p.dev25}</td><td colspan="11"></td></tr>`; }
+  linhas += `<tr><td>2026</td><td>Geral</td>${p.h26.map((v,i)=>`<td class="${i===11?'proj':''}">${v}</td>`).join('')}<td>${tot26}</td><td>${p.dev26}</td><td>${liq26}</td>
+    <td>${p.res}</td><td class="fw-bold">${fmt(p.est)}</td><td class="blue">${p.cd}</td><td>${p.ped}</td><td>${p.tran}</td><td>${p.rev}</td><td>${p.min}</td><td>${p.max}</td><td>${p.ab}</td><td>${p.saldo}</td></tr>`;
+  if(p.va) linhas += `<tr class="row-va"><td>2026</td><td>V.A.</td><td colspan="20"></td><td><i class="bi bi-caret-up-fill text-success"></i> ${p.va[0]} %</td><td>${p.va[1]}</td><td>${p.va[2]}</td><td><i class="bi bi-caret-up-fill text-success"></i> ${p.va[3]} %</td><td></td></tr>`;
+
+  // Linha de base escolhida
+  if(c.tipo==='grupo'){
+    const mg = mediaGrupo(p.sub, p.cod);
+    if(mg) linhas += `<tr class="row-grupo"><td>2026</td><td title="Média do subgrupo">Subgr. ${p.sub}</td>${mg.map(v=>`<td>${v}</td>`).join('')}<td>${sum(mg.slice(0,11))}</td><td colspan="14" class="text-start ps-2"><i class="bi bi-diagram-3"></i> Média de ${produtos.filter(x=>x.sub===p.sub&&x.cod!==p.cod).length} produtos do subgrupo</td></tr>`;
+  }
+  if(c.tipo==='espelho' && c.espelho){
+    const e = produtos.find(x=>x.cod===c.espelho);
+    if(e) linhas += `<tr class="row-espelho"><td>2026</td><td title="${e.desc}">Esp. ${e.cod}</td>${e.h26.map(v=>`<td>${v}</td>`).join('')}<td>${sum(e.h26.slice(0,11))}</td><td colspan="14" class="text-start ps-2"><i class="bi bi-files"></i> ${e.desc}</td></tr>`;
+  }
+
+  const res20 = Math.round(p.est*0.20), lojas = p.est - res20;
+  const espDesc = c.espelho ? (produtos.find(x=>x.cod===c.espelho)||{}).desc : '';
+
+  return `
+  <div class="prod ${c.salvo?'salvo':''}" id="p-${id}">
+    <div class="prod-head">
+      <span class="title">${p.cod} - ${p.desc} <i class="bi bi-arrow-return-right blue"></i></span>
+      <span>LJ: J: <span class="blue">211</span> <i class="bi bi-info-circle-fill blue"></i></span>
+      <span>${p.compra}</span>
+      <a href="#" class="blue fw-bold text-decoration-none">Min e Max</a>
+      <span>P: ${p.pmsv[0]} | M: <span class="blue">${p.pmsv[1]}</span> | S: ${p.pmsv[2]} | V: <span class="blue">${p.pmsv[3]}</span></span>
+      <span class="ico">
+        <span class="o">${p.badge||'0'}</span><span><i class="bi bi-camera-fill"></i></span><span><i class="bi bi-bar-chart-fill"></i></span>
+        <span class="m"><i class="bi bi-calendar-event"></i></span><span><i class="bi bi-wrench"></i></span>
+        ${p.star?`<span class="g" style="width:auto;padding:0 5px"><i class="bi bi-star-fill"></i> ${p.star}</span>`:''}
+        <span><i class="bi bi-check2-square"></i></span><span><i class="bi bi-truck"></i></span><span><i class="bi bi-info-circle"></i></span><span class="g"><i class="bi bi-journal"></i></span>
+      </span>
+    </div>
+    <div class="table-responsive">
+    <table class="rvp">
+      <thead><tr><th>Ano</th><th>Filial</th>${MESES.map(m=>`<th>${m}</th>`).join('')}<th>TOT</th><th><span class="th-pill">DEV</span></th><th>LIQ</th>
+        <th><span class="th-pill">RES</span></th><th><span class="badge bg-success">0</span> EST <span class="badge bg-success">0</span></th>
+        <th><span class="th-pill g">CD</span></th><th><span class="th-pill g">PED</span></th><th><span class="th-pill g">TRÂN</span></th><th>REV</th>
+        <th><span class="th-pill g">MIN</span></th><th><span class="th-pill g">MAX</span></th><th><span class="th-pill">AB+</span></th><th><span class="th-pill">SALDO</span></th></tr></thead>
+      <tbody>${linhas}</tbody>
+    </table>
+    </div>
+
+    <!-- ===== NOVA FUNÇÃO: ABASTECIMENTO ===== -->
+    <div class="abast">
+      <span class="tit"><i class="bi bi-box-seam"></i> Abastecimento por:</span>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="ab-${id}" id="ab-${id}-p" value="produto" ${c.tipo==='produto'?'checked':''} onchange="setTipo('${id}',this.value)">
+        <label class="form-check-label" for="ab-${id}-p">Histórico do produto</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="ab-${id}" id="ab-${id}-g" value="grupo" ${c.tipo==='grupo'?'checked':''} onchange="setTipo('${id}',this.value)">
+        <label class="form-check-label" for="ab-${id}-g">Histórico do grupo / subgrupo <small class="text-muted">(${p.sub})</small></label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="ab-${id}" id="ab-${id}-e" value="espelho" ${c.tipo==='espelho'?'checked':''} onchange="setTipo('${id}',this.value)">
+        <label class="form-check-label" for="ab-${id}-e">Histórico de produto espelho</label>
+      </div>
+      <div class="espelho-box ${c.tipo==='espelho'?'show':''}" id="esp-${id}">
+        <div class="input-group input-group-sm" style="width:auto">
+          <input type="text" class="form-control form-control-sm" id="espIn-${id}" placeholder="Cód. produto" value="${c.espelho||''}" list="dlProd" onkeydown="if(event.key==='Enter')buscarEspelho('${id}')">
+          <button class="btn btn-outline-warning" onclick="buscarEspelho('${id}')"><i class="bi bi-search"></i></button>
+        </div>
+        <span class="esp-result" id="espRes-${id}">${c.espelho?`<span class="text-success"><i class="bi bi-check-circle"></i> ${espDesc}</span>`:''}</span>
+      </div>
+      <div class="form-check chk20 ms-md-3">
+        <input class="form-check-input" type="checkbox" id="r20-${id}" ${c.reserva20?'checked':''} onchange="setReserva('${id}',this.checked)">
+        <label class="form-check-label fw-bold" for="r20-${id}">Deixar 20% do total no CD</label>
+      </div>
+      <span class="reserva-info" id="rInfo-${id}" style="${c.reserva20?'':'display:none'}">Reserva CD: <b>${fmt(res20)}</b> | Disponível p/ lojas: <b>${fmt(lojas)}</b></span>
+      <span class="ms-auto d-flex align-items-center gap-2">
+        <span class="saved-tag text-success" id="sv-${id}">${c.salvo?'<i class="bi bi-check2-all"></i> Salvo':''}</span>
+        <button class="btn btn-success btn-sm btn-salvar" onclick="salvar('${id}')"><i class="bi bi-save"></i> Salvar</button>
+      </span>
+    </div>
+  </div>`;
+}
+
+const get = id => produtos.find(p=>p.cod===id);
+function marcarAlterado(p){ p.cfg.salvo=false; }
+function setTipo(id, tipo){
+  const p = get(id); p.cfg.tipo = tipo; if(tipo!=='espelho') p.cfg.espelho=null; marcarAlterado(p);
+  rerender(id);
+  if(tipo==='espelho') setTimeout(()=>document.getElementById('espIn-'+id).focus(),0);
+}
+function buscarEspelho(id){
+  const p = get(id), v = document.getElementById('espIn-'+id).value.trim().split(' ')[0];
+  const out = document.getElementById('espRes-'+id);
+  const e = produtos.find(x=>x.cod===v);
+  if(!v){ out.innerHTML='<span class="text-danger">Informe um código</span>'; return; }
+  if(v===id){ out.innerHTML='<span class="text-danger">Não pode ser o próprio produto</span>'; return; }
+  if(!e){ out.innerHTML='<span class="text-danger"><i class="bi bi-x-circle"></i> Produto não encontrado</span>'; return; }
+  p.cfg.espelho = e.cod; marcarAlterado(p); rerender(id);
+}
+function setReserva(id, v){ const p=get(id); p.cfg.reserva20=v; marcarAlterado(p); rerender(id); }
+function rerender(id){
+  const el = document.getElementById('p-'+id);
+  const tmp = document.createElement('div'); tmp.innerHTML = cardHTML(get(id)).trim();
+  el.replaceWith(tmp.firstElementChild);
+}
+function salvar(id, silencioso){
+  const p = get(id), c = p.cfg;
+  if(c.tipo==='espelho' && !c.espelho){ toast('Informe o produto espelho de '+id, true); return false; }
+  c.salvo = true; rerender(id);
+  const tipos = {produto:'Histórico do produto', grupo:'Histórico do subgrupo '+p.sub, espelho:'Espelho '+c.espelho};
+  console.log('Salvar abastecimento', {produto:id, tipo:c.tipo, espelho:c.espelho, reserva20:c.reserva20});
+  if(!silencioso) toast(`${id} salvo: ${tipos[c.tipo]}${c.reserva20?' + 20% no CD':''}`);
+  return true;
+}
+function toast(msg, erro){
+  const t = document.getElementById('toast');
+  t.classList.toggle('text-bg-success', !erro); t.classList.toggle('text-bg-danger', !!erro);
+  document.getElementById('toastMsg').textContent = msg;
+  if(window.bootstrap){bootstrap.Toast.getOrCreateInstance(t,{delay:2500}).show();}else{t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);}
+}
+
+// datalist para busca do espelho
+const dl = document.createElement('datalist'); dl.id='dlProd';
+dl.innerHTML = produtos.map(p=>`<option value="${p.cod}">${p.desc}</option>`).join('');
+document.body.appendChild(dl);
+
+document.getElementById('btnAplicar').addEventListener('click', e=>{e.preventDefault();render();});
+['fGrupo','fOrdem'].forEach(i=>document.getElementById(i).addEventListener('change',render));
+document.getElementById('fProduto').addEventListener('input',render);
+document.getElementById('btnSalvarTodos').addEventListener('click',()=>{
+  const ok = [...document.querySelectorAll('.prod')].map(el=>salvar(el.id.slice(2),true)).filter(Boolean).length;
+  toast(ok+' produto(s) salvos');
+});
+render();
+    </script>
+</body>
+
+</html> <table class="table table-bordered table-sm resumo bg-white mb-0">
+            <thead>
+                <tr>
+                    <th>45.985.371/0001-08 3M</th>
+                    <th>Tipo</th>
+                    <th>Custo</th>
+                    <th>Venda</th>
+                    <th>Markup</th>
+                    <th>Contas Pagar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Gerente <span class="float-end blue">Camila Nicoletti</span></td>
+                    <td class="num blue">Compra</td>
+                    <td class="num blue">6.409.376,93</td>
+                    <td class="num blue">10.751.816,48</td>
+                    <td class="num blue">67,751 %</td>
+                    <td class="num blue">13.553.203,67</td>
+                </tr>
+                <tr>
+                    <td>Saldo Pedido <span class="float-end">3.657.370,95</span></td>
+                    <td class="num blue">Consig.</td>
+                    <td class="num blue">3.410.070,23</td>
+                    <td class="num blue">5.878.251,10</td>
+                    <td class="num blue">72,379 %</td>
+                    <td class="num blue">2.896.145,36</td>
+                </tr>
+                <tr>
+                    <td>Conserto <span class="float-end">403,00</span></td>
+                    <td class="num red">Total</td>
+                    <td class="num red"><small>(2,47 %)</small> 9.819.447,16</td>
+                    <td class="num red"><small>(2,21 %)</small> 16.630.067,58</td>
+                    <td class="num red">66,399 %</td>
+                    <td class="num red">16.449.349,03</td>
+                </tr>
+                <tr>
+                    <td>N.D Pendentes <span class="float-end">6.000,00</span></td>
+                    <td class="num grey">Total mês</td>
+                    <td class="num grey">(2,43 %) 62.343,41</td>
+                    <td class="num grey">(2,15 %) 104.580,44</td>
+                    <td class="num grey">67,750 %</td>
+                    <td class="num grey">8.448.961,51</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- FILTROS -->
+        <div class="panel">
+            <div class="row">
+                <!-- CABEÇALHO SOLICITADO -->
+                <div class="col-md-8" style="display: flex; flex-wrap: nowrap;">
+                    <div class="col-md-6">
+                        <div><label><input type="checkbox"> Cpfj</label> <label><input type="checkbox"> Nome</label></div>
+                        <div class="btn-group mt-1">
+                            <button class="btn btn-sm btn-for px-3 py-2">For</button>
+                            <button class="btn btn-sm btn-fab px-3 py-2">Fab</button>
+                        </div>
+                    </div>
+                    <div class="col-md-3 px-1" style="min-width:160px">
+                        <label class="lbl">Fornecedor <input type="checkbox"> Todos</label>
+                        <select class="form-select form-select-sm"><option>3M (45.985.371/0001-08)</option></select>
+                    </div>
+                    <div class="col-md-3 px-1">
+                        <label class="lbl">Departamento</label>
+                        <select class="form-select form-select-sm"><option></option><option>Papelaria</option></select>
+                    </div>
+                    <div class="col-md-3 px-1">
+                        <label class="lbl">Grupo</label>
+                        <select class="form-select form-select-sm" id="fGrupo"><option value="">Todos</option><option>76x76</option><option>76x102</option><option>38x50</option><option>47,6x47,6</option></select>
+                    </div>
+                    <div class="col-md-3 px-1">
+                        <label class="lbl">Tipo Produto</label>
+                        <select class="form-select form-select-sm"><option></option></select>
+                    </div>
+                    <div class="col-md-3 px-1">
+                        <label class="lbl">Produto</label>
+                        <input class="form-control form-control-sm" id="fProduto" placeholder="Código / desc.">
+                    </div>
+                    <div class="col-md-3 px-1 pt-3">
+                        <label><input type="checkbox"> Sem min/max</label>
+                    </div>
+                </div>
+                <div class="col-md-4 text-end">
+                    <div class="badges">
+                        <span class="badge" style="background:#e08e0b">CD 4443</span>
+                        <span class="badge" style="background:#d9232d">CD 1776</span>
+                        <span class="badge" style="background:#c2185b">AB + 124</span>
+                        <span class="badge" style="background:#c2185b">LZ 8568</span>
+                    </div>
+                    <div class="mt-2">Qtd. SKU:914 | Ativos:<span class="text-success">142</span> | Descont.:<span class="text-warning">26</span> | Outlet: <span class="text-warning">13</span> | Inativos:722 | Lanc.:<span class="blue">11</span></div>
+                    <div class="mt-2">Paginas:1 / 4 | Filtros <i class="bi bi-caret-up-fill"></i></div>
+                </div>
+            </div>
+
+            <div class="linksbar mt-2">
+                <a href="#">Pedido <span class="badge bg-danger rounded-pill">14</span> +</a><span class="sep">|</span>
+                <a href="#">Consignado <span class="badge bg-warning rounded-pill">1</span></a><span class="sep">|</span>
+                <a href="#">Créditos</a><span class="sep">|</span><a href="#">Gôndola</a><span class="sep">|</span>
+                <a href="#">Tabela de Preço</a><span class="sep">|</span><a href="#">Embalagens</a><span class="sep">|</span>
+                <a href="#">Contatos</a><span class="sep">|</span><a href="#">Desativar NeoGrid</a>
+            </div>
+
+            <div class="filters-box row g-2 align-items-end">
+                <div class="col-auto"><label class="lbl">Visualizar</label><select class="form-select form-select-sm"><option>Produtos</option></select></div>
+                <div class="col-auto"><label class="lbl">Por</label><select class="form-select form-select-sm"><option>Quantidade</option><option>Valor</option></select></div>
+                <div class="col-auto"><label class="lbl">Ordenar</label><select class="form-select form-select-sm" id="fOrdem"><option value="cod">Código</option><option value="tot">Venda 2026</option><option value="cd">Estoque CD</option></select></div>
+                <div class="col-auto"><label class="lbl">Status Produtos</label><select class="form-select form-select-sm"><option>Ativo</option></select></div>
+                <div class="col-auto"><label class="lbl">UF</label><select class="form-select form-select-sm"><option></option><option>SP</option></select></div>
+                <div class="col-auto"><label class="lbl">Lojas</label><select class="form-select form-select-sm"><option></option></select></div>
+                <div class="col-auto"><label class="lbl">Ano(s)</label><select class="form-select form-select-sm"><option>2</option></select></div>
+                <div class="col-auto"><label class="lbl">Data início</label><input type="date" class="form-control form-control-sm"></div>
+                <div class="col-auto"><label class="lbl">Data fim</label><input type="date" class="form-control form-control-sm"></div>
+                <div class="col-auto"><a href="#" class="d-block blue fw-bold" id="btnAplicar">Aplicar Filtros</a><a href="#" class="d-block blue fw-bold" onclick="window.print()">Imprimir</a></div>
+                <div class="col-auto ms-auto"><button class="btn btn-success btn-sm" id="btnSalvarTodos"><i class="bi bi-save"></i> Salvar todos</button></div>
+            </div>
+        </div>
+
+        <nav class="d-flex justify-content-center my-2">
+            <ul class="pagination pagination-sm mb-0">
+                <li class="page-item"><a class="page-link">Primeira</a></li>
+                <li class="page-item active"><a class="page-link">1</a></li>
+                <li class="page-item"><a class="page-link">2</a></li>
+                <li class="page-item"><a class="page-link">3</a></li>
+                <li class="page-item"><a class="page-link">4</a></li>
+                <li class="page-item"><a class="page-link">Ultima</a></li>
+            </ul>
+        </nav>
+
+        <!-- TOTAL FORNECEDOR -->
+        <table class="rvp mb-2">
+            <thead>
+                <tr>
+                    <th>Ano</th>
+                    <th>JAN</th>
+                    <th>FEV</th>
+                    <th>MAR</th>
+                    <th>ABR</th>
+                    <th>MAI</th>
+                    <th>JUN</th>
+                    <th>JUL</th>
+                    <th>AGO</th>
+                    <th>SET</th>
+                    <th>OUT</th>
+                    <th>NOV</th>
+                    <th>DEZ</th>
+                    <th>TOT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2025</td>
+                    <td>6.632.172</td>
+                    <td>4.389.126</td>
+                    <td>3.489.610</td>
+                    <td>3.245.548</td>
+                    <td>3.492.088</td>
+                    <td>3.291.773</td>
+                    <td>3.369.860</td>
+                    <td>3.530.951</td>
+                    <td>3.350.790</td>
+                    <td>3.461.953</td>
+                    <td>3.262.665</td>
+                    <td>3.672.037</td>
+                    <td>45.188.573</td>
+                </tr>
+                <tr>
+                    <td>2026</td>
+                    <td>5.839.093</td>
+                    <td>3.545.448</td>
+                    <td>3.411.481</td>
+                    <td>2.962.489</td>
+                    <td>3.249.618</td>
+                    <td>2.989.449</td>
+                    <td>3.183.449</td>
+                    <td>2.902.413</td>
+                    <td>2.890.313</td>
+                    <td>3.075.824</td>
+                    <td>104.580</td>
+                    <td>0</td>
+                    <td>34.154.158</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div id="lista"></div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="toast" class="toast text-bg-success border-0">
+            <div class="d-flex">
+                <div class="toast-body" id="toastMsg">Salvo</div><button class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    <script>
+        /* ===== DADOS (extraídos da tela RVP – 3M) =====
+         formato: cod|descrição|subgrupo|compra|P,M,S,V|badge|estrela|2025 (12 meses + DEV)|2026 (12 meses + DEV)|RES,EST,CD,PED,TRAN,REV,MIN,MAX,AB,SALDO|V.A. (min%,min,max,max%) */
+        const RAW = `
+040710|Bloco autoadesivo 76x76 azul aqua c/90fls HB00465019 CX 1 UN|76x76|Compra - 29/09/2026|0,41,0,169|2|5|1451,682,348,268,260,242,203,237,168,173,187,226,10|1252,420,277,180,155,142,145,222,131,140,8,226,15|0,2110,627,4,19,3,286,668,0,0|142,693,1772,165
+040711|Bloco autoadesivo 76x76 lilac c/90fls HB00465721 CX 1 UN|76x76|Compra - 29/09/2026|0,210,1,0|0|5|9554,3688,1856,1430,1376,1111,908,865,759,733,836,1456,68|8250,2632,1456,810,686,533,641,713,502,611,28,1456,59|0,13208,2376,0,1,2,641,1542,0,0|576,4336,10958,611
+040712|Bloco autoadesivo 76x76 azul elétrico c/90fls HB00465024 CX 1 UN|76x76|Compra - 29/09/2026|0,43,0,168|2|5|1344,761,480,470,436,363,431,358,400,283,361,423,27|1501,587,485,335,309,211,354,273,232,217,2,423,16|0,2853,1125,0,5,1,418,972,0,0|102,846,2125,119
+040713|Bloco autoadesivo 76x102 rosa milênio c/90fls HB00465717 CX 1 UN|76x102|Compra - 29/09/2026|0,20,0,190|2|5|897,400,202,254,314,234,279,275,229,267,247,304,21|1185,385,374,290,293,175,233,321,191,301,5,304,26|0,2174,794,26,28,1,423,945,0,0|65,698,1745,85
+040714|Bloco autoadesivo 76x102 lilac c/90fls HB00465722 CX 1 UN|76x102|Compra - 29/09/2026|0,84,0,126|1|5|1954,892,462,459,455,407,371,466,373,368,404,474,27|2134,822,680,425,431,270,376,368,313,374,9,474,36|0,3733,1297,2,26,1,439,1053,0,0|175,1208,3099,194
+040715|Bloco autoadesivo 76x102 pink c/90fls HB00465718 CX 1 UN|76x102|Compra - 29/09/2026|0,1,0,210|3|5|510,390,376,353,306,330,267,321,332,514,312,295,23|633,397,423,328,306,257,298,311,257,252,4,295,43|0,1635,703,31,20,3,350,887,0,0|65,579,1386,56
+040716|Bloco autoadesivo 76x102 vd limeade c/90fls HB00465710 CX 1 UN|76x102|Compra - 29/09/2026|0,1,0,210|3||378,331,317,303,298,353,223,318,343,343,336,278,25|526,354,368,314,296,242,264,234,227,276,6,278,22|0,1299,469,3,45,3,461,1086,0,0|
+040717|Bloco autoadesivo 76x102 azul aqua c/90fls HB00465540 CX 1 UN|76x102|Compra - 29/09/2026|0,4,0,206|1|5|566,327,293,237,231,235,181,267,231,248,269,229,48|707,351,346,257,268,182,208,239,227,307,6,229,85|0,1557,552,10,30,0,329,830,0,0|75,575,1341,62
+040718|Bloco autoadesivo Post-it 76x102 laranja c/90fls PT 1 UN|76x102|Compra - 29/09/2026|0,1,0,210|5|5|363,323,328,351,302,320,251,294,278,421,209,200,26|353,347,332,251,235,197,231,236,206,197,4,200,48|0,1313,638,24,40,0,359,936,0,0|
+040720|Bloco autoadesivo Post-it 38x50 rs/vd c/100fls 653 PT 4 UN|38x50|Compra - 29/09/2026|0,16,0,195|3|4.6|3402,1360,734,613,670,491,619,699,673,514,452,639,67|3058,1255,844,725,759,565,776,621,730,763,6,639,39|1,5071,1551,9,15,1,685,1645,0,0|162,1792,4531,175
+040723|Bloco Post-it 76x76mm sal rosa 90fls HB00476772 BL 1 UN|76x76|Compra - 29/09/2026|0,27,0,184|1|5|0,0,0,0,0,0,395,490,442,368,287,303,4|1411,678,548,414,449,321,433,388,298,340,9,303,18|0,2953,1518,11,5,2,442,1060,0,0|90,842,2083,97
+040725|Bloco autoadesivo Post-it 38x50 amarelo c/100fls 653 PT 4 UN|38x50|Compra - 29/09/2026|0,15,0,196|0|4.79|2977,2335,2053,1669,1820,1733,1632,2122,2101,2316,1803,1550,287|3000,1717,1922,1632,2216,1742,1927,1736,1546,1237,16,1550,257|17,10013,6570,22,7,0,1780,4421,0,0|46,2591,6472,46
+040731|Bloco autoadesivo Post-it 38x50 sortido c/50fls BT 4 UN|38x50|Compra - 29/09/2026|0,211,0,0|0|4.75|25021,12006,6437,9059,5941,4553,4414,4132,3804,3355,3268,5339,584|21791,8009,5073,3684,3213,2428,3278,3218,2491,2658,74,5339,283|6,39022,10562,0,0,1,3215,8104,0,0|274,12030,30078,271
+040740|Bloco Post-it 76x76mm amarelo canário 100fls PT 1 UN|76x76|Compra - 29/09/2026|0,7,0,204|0|4.6|3864,3083,2096,1926,2707,2042,2305,2263,2531,2585,2152,1982,543|5200,2209,2087,2409,2263,2473,2317,995,2261,2143,48,1982,353|14,12302,7128,49,106,74,1940,4823,0,0|89,3660,9143,90
+040743|Bloco autoadesivo Post-it 76x102 amarelo c/100fls 657 PT 1 UN|76x102|Compra - 29/09/2026|0,16,0,195|0|4.78|4350,3009,3158,2810,2896,2578,2705,2974,2907,2980,2416,2111,393|4298,2914,3041,2315,2666,2168,2535,2719,2153,2074,35,2111,346|0,14375,9879,53,99,0,2178,5422,0,0|57,3418,8527,57
+040932|Calendário autoadesivo 38x50 semanal c/2bl HB00460566 PT 1 UN|38x50|Consignado - 15/09/2026|0,25,0,186|1|3.8|1414,809,651,451,484,385,446,504,433,393,376,484,32|1144,634,450,437,462,386,371,475,383,255,12,484,28|0,2829,584,0,29,29,1281,3150,0,696|
+041022|Bloco autoadesivo Post-it 47,6x47,6mm 6 cores 45fls 835789 PT 6 UN|47,6x47,6|Compra - 29/09/2026|0,1,70,140|0||-|830,611,518,582,452,347,311,308,200,180,12,0,22|0,2661,1315,0,24,0,382,933,0,0|97,754,1856,99
+041046|Bloco autoadesivo Post-it 38x50 novas cores c/100fls 653 PT 4 UN|38x50|Compra - 15/10/2026|0,211,0,0|0|4.8|26305,12455,6619,5241,6431,5006,5356,5661,5828,6154,5137,4700,738|22879,9211,6482,5414,4588,4628,4696,3992,3676,3947,57,4700,799|11,42596,17872,0,37,0,4268,10686,0,0|187,12260,31826,198
+041067|Bloco autoadesivo Post-it 47,6x47,6 cubo verde PT 1 UN|47,6x47,6|Compra - 29/09/2026|0,1,0,210|2||600,383,326,344,282,261,324,348,340,364,291,281,25|552,290,220,189,215,219,118,169,97,110,1,281,22|0,1368,548,7,7,0,396,940,0,0|
+041078|Bloco autoadesivo Post-it 76x76 HB00465724 PT 5 UN|76x76|Compra - 29/09/2026|0,98,58,54|0|4.88|1952,1286,992,1089,996,864,983,1170,1022,947,1102,1142,164|2628,1223,1190,1060,1002,959,1270,674,774,675,13,1142,146|0,6178,3302,0,20,0,1078,2641,0,0|59,1716,4381,66
+041136|Bloco autoadesivo Post-it 76x76 pop-up az.céu c/90fls PT 1 UN|76x76|Compra - 29/09/2026|0,10,0,201|0|5|893,469,366,332,301,272,285,261,317,341,304,287,18|939,425,344,250,252,227,247,233,225,196,7,287,34|0,1984,764,0,9,2,439,952,0,0|51,665,1624,71
+`.trim().split('\n');
+
+        const n = s => s.split(',').map(Number);
+        const produtos = RAW.map(l => {
+            const [cod, desc, sub, compra, pmsv, badge, star, h25, h26, est, va] = l.split('|');
+            const a25 = h25 === '-' ? null : n(h25),
+                a26 = n(h26),
+                e = n(est);
+            return {
+                cod,
+                desc,
+                sub,
+                compra,
+                pmsv: n(pmsv),
+                badge,
+                star,
+                h25: a25 ? a25.slice(0, 12) : null,
+                dev25: a25 ? a25[12] : 0,
+                h26: a26.slice(0, 12),
+                dev26: a26[12],
+                res: e[0],
+                est: e[1],
+                cd: e[2],
+                ped: e[3],
+                tran: e[4],
+                rev: e[5],
+                min: e[6],
+                max: e[7],
+                ab: e[8],
+                saldo: e[9],
+                va: va ? n(va) : null,
+                cfg: {
+                    tipo: 'produto',
+                    espelho: null,
+                    reserva20: false,
+                    salvo: false
+                }
+            };
+        });
+        const MES_ATUAL = 10; // novembro (índice) – mês corrente, parcial
+        const sum = a => a.reduce((x, y) => x + y, 0);
+        const fmt = v => v.toLocaleString('pt-BR');
+        const MESES = ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ'];
+
+        function mediaGrupo(sub, exceto) {
+            const ps = produtos.filter(p => p.sub === sub && p.cod !== exceto);
+            if (!ps.length) return null;
+            return MESES.map((_, i) => Math.round(sum(ps.map(p => p.h26[i])) / ps.length));
+        }
+
+        function linhaHist(label, filial, arr, cls = '') {
+            return `<tr class="${cls}"><td>${label}</td><td>${filial}</td>${arr.map((v,i)=>`<td class="${label==='2026'&&i===11?'proj':''}">${v}</td>`).join('')}<td>${sum(arr)}</td>`;
+}
+
+function render(){
+  const g = document.getElementById('fGrupo').value;
+  const q = document.getElementById('fProduto').value.toLowerCase().trim();
+  const ord = document.getElementById('fOrdem').value;
+  let lista = produtos.filter(p => (!g || p.sub===g) && (!q || p.cod.includes(q) || p.desc.toLowerCase().includes(q)));
+  lista.sort((a,b)=> ord==='tot' ? sum(b.h26)-sum(a.h26) : ord==='cd' ? b.cd-a.cd : a.cod.localeCompare(b.cod));
+  document.getElementById('lista').innerHTML = lista.map(cardHTML).join('') || '<div class="alert alert-light mt-3">Nenhum produto encontrado.</div>';
+}
+
+function cardHTML(p){
+  const c = p.cfg, id = p.cod;
+  const tot26 = sum(p.h26.slice(0,11)), liq26 = tot26 - p.dev26;
+  let linhas = '';
+  if(p.h25){ const t=sum(p.h25); linhas += `<tr><td>2025</td><td>Geral</td>${p.h25.map(v=>`<td>${v}</td>`).join('')}<td>${t}</td><td>${p.dev25}</td><td>${t-p.dev25}</td><td colspan="11"></td></tr>`; }
+  linhas += `<tr><td>2026</td><td>Geral</td>${p.h26.map((v,i)=>`<td class="${i===11?'proj':''}">${v}</td>`).join('')}<td>${tot26}</td><td>${p.dev26}</td><td>${liq26}</td>
+    <td>${p.res}</td><td class="fw-bold">${fmt(p.est)}</td><td class="blue">${p.cd}</td><td>${p.ped}</td><td>${p.tran}</td><td>${p.rev}</td><td>${p.min}</td><td>${p.max}</td><td>${p.ab}</td><td>${p.saldo}</td></tr>`;
+  if(p.va) linhas += `<tr class="row-va"><td>2026</td><td>V.A.</td><td colspan="20"></td><td><i class="bi bi-caret-up-fill text-success"></i> ${p.va[0]} %</td><td>${p.va[1]}</td><td>${p.va[2]}</td><td><i class="bi bi-caret-up-fill text-success"></i> ${p.va[3]} %</td><td></td></tr>`;
+
+  // Linha de base escolhida
+  if(c.tipo==='grupo'){
+    const mg = mediaGrupo(p.sub, p.cod);
+    if(mg) linhas += `<tr class="row-grupo"><td>2026</td><td title="Média do subgrupo">Subgr. ${p.sub}</td>${mg.map(v=>`<td>${v}</td>`).join('')}<td>${sum(mg.slice(0,11))}</td><td colspan="14" class="text-start ps-2"><i class="bi bi-diagram-3"></i> Média de ${produtos.filter(x=>x.sub===p.sub&&x.cod!==p.cod).length} produtos do subgrupo</td></tr>`;
+  }
+  if(c.tipo==='espelho' && c.espelho){
+    const e = produtos.find(x=>x.cod===c.espelho);
+    if(e) linhas += `<tr class="row-espelho"><td>2026</td><td title="${e.desc}">Esp. ${e.cod}</td>${e.h26.map(v=>`<td>${v}</td>`).join('')}<td>${sum(e.h26.slice(0,11))}</td><td colspan="14" class="text-start ps-2"><i class="bi bi-files"></i> ${e.desc}</td></tr>`;
+  }
+
+  const res20 = Math.round(p.est*0.20), lojas = p.est - res20;
+  const espDesc = c.espelho ? (produtos.find(x=>x.cod===c.espelho)||{}).desc : '';
+
+  return `
+  <div class="prod ${c.salvo?'salvo':''}" id="p-${id}">
+    <div class="prod-head">
+      <span class="title">${p.cod} - ${p.desc} <i class="bi bi-arrow-return-right blue"></i></span>
+      <span>LJ: J: <span class="blue">211</span> <i class="bi bi-info-circle-fill blue"></i></span>
+      <span>${p.compra}</span>
+      <a href="#" class="blue fw-bold text-decoration-none">Min e Max</a>
+      <span>P: ${p.pmsv[0]} | M: <span class="blue">${p.pmsv[1]}</span> | S: ${p.pmsv[2]} | V: <span class="blue">${p.pmsv[3]}</span></span>
+      <span class="ico">
+        <span class="o">${p.badge||'0'}</span><span><i class="bi bi-camera-fill"></i></span><span><i class="bi bi-bar-chart-fill"></i></span>
+        <span class="m"><i class="bi bi-calendar-event"></i></span><span><i class="bi bi-wrench"></i></span>
+        ${p.star?`<span class="g" style="width:auto;padding:0 5px"><i class="bi bi-star-fill"></i> ${p.star}</span>`:''}
+        <span><i class="bi bi-check2-square"></i></span><span><i class="bi bi-truck"></i></span><span><i class="bi bi-info-circle"></i></span><span class="g"><i class="bi bi-journal"></i></span>
+      </span>
+    </div>
+    <div class="table-responsive">
+    <table class="rvp">
+      <thead><tr><th>Ano</th><th>Filial</th>${MESES.map(m=>`<th>${m}</th>`).join('')}<th>TOT</th><th><span class="th-pill">DEV</span></th><th>LIQ</th>
+        <th><span class="th-pill">RES</span></th><th><span class="badge bg-success">0</span> EST <span class="badge bg-success">0</span></th>
+        <th><span class="th-pill g">CD</span></th><th><span class="th-pill g">PED</span></th><th><span class="th-pill g">TRÂN</span></th><th>REV</th>
+        <th><span class="th-pill g">MIN</span></th><th><span class="th-pill g">MAX</span></th><th><span class="th-pill">AB+</span></th><th><span class="th-pill">SALDO</span></th></tr></thead>
+      <tbody>${linhas}</tbody>
+    </table>
+    </div>
+
+    <!-- ===== NOVA FUNÇÃO: ABASTECIMENTO ===== -->
+    <div class="abast">
+      <span class="tit"><i class="bi bi-box-seam"></i> Abastecimento por:</span>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="ab-${id}" id="ab-${id}-p" value="produto" ${c.tipo==='produto'?'checked':''} onchange="setTipo('${id}',this.value)">
+        <label class="form-check-label" for="ab-${id}-p">Histórico do produto</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="ab-${id}" id="ab-${id}-g" value="grupo" ${c.tipo==='grupo'?'checked':''} onchange="setTipo('${id}',this.value)">
+        <label class="form-check-label" for="ab-${id}-g">Histórico do grupo / subgrupo <small class="text-muted">(${p.sub})</small></label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="ab-${id}" id="ab-${id}-e" value="espelho" ${c.tipo==='espelho'?'checked':''} onchange="setTipo('${id}',this.value)">
+        <label class="form-check-label" for="ab-${id}-e">Histórico de produto espelho</label>
+      </div>
+      <div class="espelho-box ${c.tipo==='espelho'?'show':''}" id="esp-${id}">
+        <div class="input-group input-group-sm" style="width:auto">
+          <input type="text" class="form-control form-control-sm" id="espIn-${id}" placeholder="Cód. produto" value="${c.espelho||''}" list="dlProd" onkeydown="if(event.key==='Enter')buscarEspelho('${id}')">
+          <button class="btn btn-outline-warning" onclick="buscarEspelho('${id}')"><i class="bi bi-search"></i></button>
+        </div>
+        <span class="esp-result" id="espRes-${id}">${c.espelho?`<span class="text-success"><i class="bi bi-check-circle"></i> ${espDesc}</span>`:''}</span>
+      </div>
+      <div class="form-check chk20 ms-md-3">
+        <input class="form-check-input" type="checkbox" id="r20-${id}" ${c.reserva20?'checked':''} onchange="setReserva('${id}',this.checked)">
+        <label class="form-check-label fw-bold" for="r20-${id}">Deixar 20% do total no CD</label>
+      </div>
+      <span class="reserva-info" id="rInfo-${id}" style="${c.reserva20?'':'display:none'}">Reserva CD: <b>${fmt(res20)}</b> | Disponível p/ lojas: <b>${fmt(lojas)}</b></span>
+      <span class="ms-auto d-flex align-items-center gap-2">
+        <span class="saved-tag text-success" id="sv-${id}">${c.salvo?'<i class="bi bi-check2-all"></i> Salvo':''}</span>
+        <button class="btn btn-success btn-sm btn-salvar" onclick="salvar('${id}')"><i class="bi bi-save"></i> Salvar</button>
+      </span>
+    </div>
+  </div>`;
+}
+
+const get = id => produtos.find(p=>p.cod===id);
+function marcarAlterado(p){ p.cfg.salvo=false; }
+function setTipo(id, tipo){
+  const p = get(id); p.cfg.tipo = tipo; if(tipo!=='espelho') p.cfg.espelho=null; marcarAlterado(p);
+  rerender(id);
+  if(tipo==='espelho') setTimeout(()=>document.getElementById('espIn-'+id).focus(),0);
+}
+function buscarEspelho(id){
+  const p = get(id), v = document.getElementById('espIn-'+id).value.trim().split(' ')[0];
+  const out = document.getElementById('espRes-'+id);
+  const e = produtos.find(x=>x.cod===v);
+  if(!v){ out.innerHTML='<span class="text-danger">Informe um código</span>'; return; }
+  if(v===id){ out.innerHTML='<span class="text-danger">Não pode ser o próprio produto</span>'; return; }
+  if(!e){ out.innerHTML='<span class="text-danger"><i class="bi bi-x-circle"></i> Produto não encontrado</span>'; return; }
+  p.cfg.espelho = e.cod; marcarAlterado(p); rerender(id);
+}
+function setReserva(id, v){ const p=get(id); p.cfg.reserva20=v; marcarAlterado(p); rerender(id); }
+function rerender(id){
+  const el = document.getElementById('p-'+id);
+  const tmp = document.createElement('div'); tmp.innerHTML = cardHTML(get(id)).trim();
+  el.replaceWith(tmp.firstElementChild);
+}
+function salvar(id, silencioso){
+  const p = get(id), c = p.cfg;
+  if(c.tipo==='espelho' && !c.espelho){ toast('Informe o produto espelho de '+id, true); return false; }
+  c.salvo = true; rerender(id);
+  const tipos = {produto:'Histórico do produto', grupo:'Histórico do subgrupo '+p.sub, espelho:'Espelho '+c.espelho};
+  console.log('Salvar abastecimento', {produto:id, tipo:c.tipo, espelho:c.espelho, reserva20:c.reserva20});
+  if(!silencioso) toast(`${id} salvo: ${tipos[c.tipo]}${c.reserva20?' + 20% no CD':''}`);
+  return true;
+}
+function toast(msg, erro){
+  const t = document.getElementById('toast');
+  t.classList.toggle('text-bg-success', !erro); t.classList.toggle('text-bg-danger', !!erro);
+  document.getElementById('toastMsg').textContent = msg;
+  if(window.bootstrap){bootstrap.Toast.getOrCreateInstance(t,{delay:2500}).show();}else{t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);}
+}
+
+// datalist para busca do espelho
+const dl = document.createElement('datalist'); dl.id='dlProd';
+dl.innerHTML = produtos.map(p=>`<option value="${p.cod}">${p.desc}</option>`).join('');
+document.body.appendChild(dl);
+
+document.getElementById('btnAplicar').addEventListener('click', e=>{e.preventDefault();render();});
+['fGrupo','fOrdem'].forEach(i=>document.getElementById(i).addEventListener('change',render));
+document.getElementById('fProduto').addEventListener('input',render);
+document.getElementById('btnSalvarTodos').addEventListener('click',()=>{
+  const ok = [...document.querySelectorAll('.prod')].map(el=>salvar(el.id.slice(2),true)).filter(Boolean).length;
+  toast(ok+' produto(s) salvos');
+});
+render();
+    </script>
+</body>
+
+</html>
