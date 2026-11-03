@@ -591,7 +591,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
     <script>
         /* ===== DADOS (extraídos da tela RVP – 3M) =====
-         formato: cod|descrição|subgrupo|compra|P,M,S,V|badge|estrela|2025 (12 meses + DEV)|2026 (12 meses + DEV)|RES,EST,CD,PED,TRAN,REV,MIN,MAX,AB,SALDO|V.A. (min%,min,max,max%) */
+                         formato: cod|descrição|subgrupo|compra|P,M,S,V|badge|estrela|2025 (12 meses + DEV)|2026 (12 meses + DEV)|RES,EST,CD,PED,TRAN,REV,MIN,MAX,AB,SALDO|V.A. (min%,min,max,max%) */
         const RAW = `
 040710|Bloco autoadesivo 76x76 azul aqua c/90fls HB00465019 CX 1 UN|76x76|Compra - 29/09/2026|0,41,0,169|2|5|1451,682,348,268,260,242,203,237,168,173,187,226,10|1252,420,277,180,155,142,145,222,131,140,8,226,15|0,2110,627,4,19,3,286,668,0,0|142,693,1772,165
 040711|Bloco autoadesivo 76x76 lilac c/90fls HB00465721 CX 1 UN|76x76|Compra - 29/09/2026|0,210,1,0|0|5|9554,3688,1856,1430,1376,1111,908,865,759,733,836,1456,68|8250,2632,1456,810,686,533,641,713,502,611,28,1456,59|0,13208,2376,0,1,2,641,1542,0,0|576,4336,10958,611
@@ -813,207 +813,208 @@ render();
     </script>
 </body>
 
-</html> <table class="table table-bordered table-sm resumo bg-white mb-0">
-            <thead>
-                <tr>
-                    <th>45.985.371/0001-08 3M</th>
-                    <th>Tipo</th>
-                    <th>Custo</th>
-                    <th>Venda</th>
-                    <th>Markup</th>
-                    <th>Contas Pagar</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Gerente <span class="float-end blue">Camila Nicoletti</span></td>
-                    <td class="num blue">Compra</td>
-                    <td class="num blue">6.409.376,93</td>
-                    <td class="num blue">10.751.816,48</td>
-                    <td class="num blue">67,751 %</td>
-                    <td class="num blue">13.553.203,67</td>
-                </tr>
-                <tr>
-                    <td>Saldo Pedido <span class="float-end">3.657.370,95</span></td>
-                    <td class="num blue">Consig.</td>
-                    <td class="num blue">3.410.070,23</td>
-                    <td class="num blue">5.878.251,10</td>
-                    <td class="num blue">72,379 %</td>
-                    <td class="num blue">2.896.145,36</td>
-                </tr>
-                <tr>
-                    <td>Conserto <span class="float-end">403,00</span></td>
-                    <td class="num red">Total</td>
-                    <td class="num red"><small>(2,47 %)</small> 9.819.447,16</td>
-                    <td class="num red"><small>(2,21 %)</small> 16.630.067,58</td>
-                    <td class="num red">66,399 %</td>
-                    <td class="num red">16.449.349,03</td>
-                </tr>
-                <tr>
-                    <td>N.D Pendentes <span class="float-end">6.000,00</span></td>
-                    <td class="num grey">Total mês</td>
-                    <td class="num grey">(2,43 %) 62.343,41</td>
-                    <td class="num grey">(2,15 %) 104.580,44</td>
-                    <td class="num grey">67,750 %</td>
-                    <td class="num grey">8.448.961,51</td>
-                </tr>
-            </tbody>
-        </table>
+</html>
+<table class="table table-bordered table-sm resumo bg-white mb-0">
+    <thead>
+        <tr>
+            <th>45.985.371/0001-08 3M</th>
+            <th>Tipo</th>
+            <th>Custo</th>
+            <th>Venda</th>
+            <th>Markup</th>
+            <th>Contas Pagar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Gerente <span class="float-end blue">Camila Nicoletti</span></td>
+            <td class="num blue">Compra</td>
+            <td class="num blue">6.409.376,93</td>
+            <td class="num blue">10.751.816,48</td>
+            <td class="num blue">67,751 %</td>
+            <td class="num blue">13.553.203,67</td>
+        </tr>
+        <tr>
+            <td>Saldo Pedido <span class="float-end">3.657.370,95</span></td>
+            <td class="num blue">Consig.</td>
+            <td class="num blue">3.410.070,23</td>
+            <td class="num blue">5.878.251,10</td>
+            <td class="num blue">72,379 %</td>
+            <td class="num blue">2.896.145,36</td>
+        </tr>
+        <tr>
+            <td>Conserto <span class="float-end">403,00</span></td>
+            <td class="num red">Total</td>
+            <td class="num red"><small>(2,47 %)</small> 9.819.447,16</td>
+            <td class="num red"><small>(2,21 %)</small> 16.630.067,58</td>
+            <td class="num red">66,399 %</td>
+            <td class="num red">16.449.349,03</td>
+        </tr>
+        <tr>
+            <td>N.D Pendentes <span class="float-end">6.000,00</span></td>
+            <td class="num grey">Total mês</td>
+            <td class="num grey">(2,43 %) 62.343,41</td>
+            <td class="num grey">(2,15 %) 104.580,44</td>
+            <td class="num grey">67,750 %</td>
+            <td class="num grey">8.448.961,51</td>
+        </tr>
+    </tbody>
+</table>
 
-        <!-- FILTROS -->
-        <div class="panel">
-            <div class="row">
-                <!-- CABEÇALHO SOLICITADO -->
-                <div class="col-md-8" style="display: flex; flex-wrap: nowrap;">
-                    <div class="col-md-6">
-                        <div><label><input type="checkbox"> Cpfj</label> <label><input type="checkbox"> Nome</label></div>
-                        <div class="btn-group mt-1">
-                            <button class="btn btn-sm btn-for px-3 py-2">For</button>
-                            <button class="btn btn-sm btn-fab px-3 py-2">Fab</button>
-                        </div>
-                    </div>
-                    <div class="col-md-3 px-1" style="min-width:160px">
-                        <label class="lbl">Fornecedor <input type="checkbox"> Todos</label>
-                        <select class="form-select form-select-sm"><option>3M (45.985.371/0001-08)</option></select>
-                    </div>
-                    <div class="col-md-3 px-1">
-                        <label class="lbl">Departamento</label>
-                        <select class="form-select form-select-sm"><option></option><option>Papelaria</option></select>
-                    </div>
-                    <div class="col-md-3 px-1">
-                        <label class="lbl">Grupo</label>
-                        <select class="form-select form-select-sm" id="fGrupo"><option value="">Todos</option><option>76x76</option><option>76x102</option><option>38x50</option><option>47,6x47,6</option></select>
-                    </div>
-                    <div class="col-md-3 px-1">
-                        <label class="lbl">Tipo Produto</label>
-                        <select class="form-select form-select-sm"><option></option></select>
-                    </div>
-                    <div class="col-md-3 px-1">
-                        <label class="lbl">Produto</label>
-                        <input class="form-control form-control-sm" id="fProduto" placeholder="Código / desc.">
-                    </div>
-                    <div class="col-md-3 px-1 pt-3">
-                        <label><input type="checkbox"> Sem min/max</label>
-                    </div>
-                </div>
-                <div class="col-md-4 text-end">
-                    <div class="badges">
-                        <span class="badge" style="background:#e08e0b">CD 4443</span>
-                        <span class="badge" style="background:#d9232d">CD 1776</span>
-                        <span class="badge" style="background:#c2185b">AB + 124</span>
-                        <span class="badge" style="background:#c2185b">LZ 8568</span>
-                    </div>
-                    <div class="mt-2">Qtd. SKU:914 | Ativos:<span class="text-success">142</span> | Descont.:<span class="text-warning">26</span> | Outlet: <span class="text-warning">13</span> | Inativos:722 | Lanc.:<span class="blue">11</span></div>
-                    <div class="mt-2">Paginas:1 / 4 | Filtros <i class="bi bi-caret-up-fill"></i></div>
+<!-- FILTROS -->
+<div class="panel">
+    <div class="row">
+        <!-- CABEÇALHO SOLICITADO -->
+        <div class="col-md-8" style="display: flex; flex-wrap: nowrap;">
+            <div class="col-md-6">
+                <div><label><input type="checkbox"> Cpfj</label> <label><input type="checkbox"> Nome</label></div>
+                <div class="btn-group mt-1">
+                    <button class="btn btn-sm btn-for px-3 py-2">For</button>
+                    <button class="btn btn-sm btn-fab px-3 py-2">Fab</button>
                 </div>
             </div>
-
-            <div class="linksbar mt-2">
-                <a href="#">Pedido <span class="badge bg-danger rounded-pill">14</span> +</a><span class="sep">|</span>
-                <a href="#">Consignado <span class="badge bg-warning rounded-pill">1</span></a><span class="sep">|</span>
-                <a href="#">Créditos</a><span class="sep">|</span><a href="#">Gôndola</a><span class="sep">|</span>
-                <a href="#">Tabela de Preço</a><span class="sep">|</span><a href="#">Embalagens</a><span class="sep">|</span>
-                <a href="#">Contatos</a><span class="sep">|</span><a href="#">Desativar NeoGrid</a>
+            <div class="col-md-3 px-1" style="min-width:160px">
+                <label class="lbl">Fornecedor <input type="checkbox"> Todos</label>
+                <select class="form-select form-select-sm"><option>3M (45.985.371/0001-08)</option></select>
             </div>
-
-            <div class="filters-box row g-2 align-items-end">
-                <div class="col-auto"><label class="lbl">Visualizar</label><select class="form-select form-select-sm"><option>Produtos</option></select></div>
-                <div class="col-auto"><label class="lbl">Por</label><select class="form-select form-select-sm"><option>Quantidade</option><option>Valor</option></select></div>
-                <div class="col-auto"><label class="lbl">Ordenar</label><select class="form-select form-select-sm" id="fOrdem"><option value="cod">Código</option><option value="tot">Venda 2026</option><option value="cd">Estoque CD</option></select></div>
-                <div class="col-auto"><label class="lbl">Status Produtos</label><select class="form-select form-select-sm"><option>Ativo</option></select></div>
-                <div class="col-auto"><label class="lbl">UF</label><select class="form-select form-select-sm"><option></option><option>SP</option></select></div>
-                <div class="col-auto"><label class="lbl">Lojas</label><select class="form-select form-select-sm"><option></option></select></div>
-                <div class="col-auto"><label class="lbl">Ano(s)</label><select class="form-select form-select-sm"><option>2</option></select></div>
-                <div class="col-auto"><label class="lbl">Data início</label><input type="date" class="form-control form-control-sm"></div>
-                <div class="col-auto"><label class="lbl">Data fim</label><input type="date" class="form-control form-control-sm"></div>
-                <div class="col-auto"><a href="#" class="d-block blue fw-bold" id="btnAplicar">Aplicar Filtros</a><a href="#" class="d-block blue fw-bold" onclick="window.print()">Imprimir</a></div>
-                <div class="col-auto ms-auto"><button class="btn btn-success btn-sm" id="btnSalvarTodos"><i class="bi bi-save"></i> Salvar todos</button></div>
+            <div class="col-md-3 px-1">
+                <label class="lbl">Departamento</label>
+                <select class="form-select form-select-sm"><option></option><option>Papelaria</option></select>
+            </div>
+            <div class="col-md-3 px-1">
+                <label class="lbl">Grupo</label>
+                <select class="form-select form-select-sm" id="fGrupo"><option value="">Todos</option><option>76x76</option><option>76x102</option><option>38x50</option><option>47,6x47,6</option></select>
+            </div>
+            <div class="col-md-3 px-1">
+                <label class="lbl">Tipo Produto</label>
+                <select class="form-select form-select-sm"><option></option></select>
+            </div>
+            <div class="col-md-3 px-1">
+                <label class="lbl">Produto</label>
+                <input class="form-control form-control-sm" id="fProduto" placeholder="Código / desc.">
+            </div>
+            <div class="col-md-3 px-1 pt-3">
+                <label><input type="checkbox"> Sem min/max</label>
             </div>
         </div>
-
-        <nav class="d-flex justify-content-center my-2">
-            <ul class="pagination pagination-sm mb-0">
-                <li class="page-item"><a class="page-link">Primeira</a></li>
-                <li class="page-item active"><a class="page-link">1</a></li>
-                <li class="page-item"><a class="page-link">2</a></li>
-                <li class="page-item"><a class="page-link">3</a></li>
-                <li class="page-item"><a class="page-link">4</a></li>
-                <li class="page-item"><a class="page-link">Ultima</a></li>
-            </ul>
-        </nav>
-
-        <!-- TOTAL FORNECEDOR -->
-        <table class="rvp mb-2">
-            <thead>
-                <tr>
-                    <th>Ano</th>
-                    <th>JAN</th>
-                    <th>FEV</th>
-                    <th>MAR</th>
-                    <th>ABR</th>
-                    <th>MAI</th>
-                    <th>JUN</th>
-                    <th>JUL</th>
-                    <th>AGO</th>
-                    <th>SET</th>
-                    <th>OUT</th>
-                    <th>NOV</th>
-                    <th>DEZ</th>
-                    <th>TOT</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>2025</td>
-                    <td>6.632.172</td>
-                    <td>4.389.126</td>
-                    <td>3.489.610</td>
-                    <td>3.245.548</td>
-                    <td>3.492.088</td>
-                    <td>3.291.773</td>
-                    <td>3.369.860</td>
-                    <td>3.530.951</td>
-                    <td>3.350.790</td>
-                    <td>3.461.953</td>
-                    <td>3.262.665</td>
-                    <td>3.672.037</td>
-                    <td>45.188.573</td>
-                </tr>
-                <tr>
-                    <td>2026</td>
-                    <td>5.839.093</td>
-                    <td>3.545.448</td>
-                    <td>3.411.481</td>
-                    <td>2.962.489</td>
-                    <td>3.249.618</td>
-                    <td>2.989.449</td>
-                    <td>3.183.449</td>
-                    <td>2.902.413</td>
-                    <td>2.890.313</td>
-                    <td>3.075.824</td>
-                    <td>104.580</td>
-                    <td>0</td>
-                    <td>34.154.158</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div id="lista"></div>
-    </div>
-
-    <!-- Toast -->
-    <div class="toast-container position-fixed bottom-0 end-0 p-3">
-        <div id="toast" class="toast text-bg-success border-0">
-            <div class="d-flex">
-                <div class="toast-body" id="toastMsg">Salvo</div><button class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button></div>
+        <div class="col-md-4 text-end">
+            <div class="badges">
+                <span class="badge" style="background:#e08e0b">CD 4443</span>
+                <span class="badge" style="background:#d9232d">CD 1776</span>
+                <span class="badge" style="background:#c2185b">AB + 124</span>
+                <span class="badge" style="background:#c2185b">LZ 8568</span>
+            </div>
+            <div class="mt-2">Qtd. SKU:914 | Ativos:<span class="text-success">142</span> | Descont.:<span class="text-warning">26</span> | Outlet: <span class="text-warning">13</span> | Inativos:722 | Lanc.:<span class="blue">11</span></div>
+            <div class="mt-2">Paginas:1 / 4 | Filtros <i class="bi bi-caret-up-fill"></i></div>
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
-    <script>
-        /* ===== DADOS (extraídos da tela RVP – 3M) =====
-         formato: cod|descrição|subgrupo|compra|P,M,S,V|badge|estrela|2025 (12 meses + DEV)|2026 (12 meses + DEV)|RES,EST,CD,PED,TRAN,REV,MIN,MAX,AB,SALDO|V.A. (min%,min,max,max%) */
-        const RAW = `
+    <div class="linksbar mt-2">
+        <a href="#">Pedido <span class="badge bg-danger rounded-pill">14</span> +</a><span class="sep">|</span>
+        <a href="#">Consignado <span class="badge bg-warning rounded-pill">1</span></a><span class="sep">|</span>
+        <a href="#">Créditos</a><span class="sep">|</span><a href="#">Gôndola</a><span class="sep">|</span>
+        <a href="#">Tabela de Preço</a><span class="sep">|</span><a href="#">Embalagens</a><span class="sep">|</span>
+        <a href="#">Contatos</a><span class="sep">|</span><a href="#">Desativar NeoGrid</a>
+    </div>
+
+    <div class="filters-box row g-2 align-items-end">
+        <div class="col-auto"><label class="lbl">Visualizar</label><select class="form-select form-select-sm"><option>Produtos</option></select></div>
+        <div class="col-auto"><label class="lbl">Por</label><select class="form-select form-select-sm"><option>Quantidade</option><option>Valor</option></select></div>
+        <div class="col-auto"><label class="lbl">Ordenar</label><select class="form-select form-select-sm" id="fOrdem"><option value="cod">Código</option><option value="tot">Venda 2026</option><option value="cd">Estoque CD</option></select></div>
+        <div class="col-auto"><label class="lbl">Status Produtos</label><select class="form-select form-select-sm"><option>Ativo</option></select></div>
+        <div class="col-auto"><label class="lbl">UF</label><select class="form-select form-select-sm"><option></option><option>SP</option></select></div>
+        <div class="col-auto"><label class="lbl">Lojas</label><select class="form-select form-select-sm"><option></option></select></div>
+        <div class="col-auto"><label class="lbl">Ano(s)</label><select class="form-select form-select-sm"><option>2</option></select></div>
+        <div class="col-auto"><label class="lbl">Data início</label><input type="date" class="form-control form-control-sm"></div>
+        <div class="col-auto"><label class="lbl">Data fim</label><input type="date" class="form-control form-control-sm"></div>
+        <div class="col-auto"><a href="#" class="d-block blue fw-bold" id="btnAplicar">Aplicar Filtros</a><a href="#" class="d-block blue fw-bold" onclick="window.print()">Imprimir</a></div>
+        <div class="col-auto ms-auto"><button class="btn btn-success btn-sm" id="btnSalvarTodos"><i class="bi bi-save"></i> Salvar todos</button></div>
+    </div>
+</div>
+
+<nav class="d-flex justify-content-center my-2">
+    <ul class="pagination pagination-sm mb-0">
+        <li class="page-item"><a class="page-link">Primeira</a></li>
+        <li class="page-item active"><a class="page-link">1</a></li>
+        <li class="page-item"><a class="page-link">2</a></li>
+        <li class="page-item"><a class="page-link">3</a></li>
+        <li class="page-item"><a class="page-link">4</a></li>
+        <li class="page-item"><a class="page-link">Ultima</a></li>
+    </ul>
+</nav>
+
+<!-- TOTAL FORNECEDOR -->
+<table class="rvp mb-2">
+    <thead>
+        <tr>
+            <th>Ano</th>
+            <th>JAN</th>
+            <th>FEV</th>
+            <th>MAR</th>
+            <th>ABR</th>
+            <th>MAI</th>
+            <th>JUN</th>
+            <th>JUL</th>
+            <th>AGO</th>
+            <th>SET</th>
+            <th>OUT</th>
+            <th>NOV</th>
+            <th>DEZ</th>
+            <th>TOT</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>2025</td>
+            <td>6.632.172</td>
+            <td>4.389.126</td>
+            <td>3.489.610</td>
+            <td>3.245.548</td>
+            <td>3.492.088</td>
+            <td>3.291.773</td>
+            <td>3.369.860</td>
+            <td>3.530.951</td>
+            <td>3.350.790</td>
+            <td>3.461.953</td>
+            <td>3.262.665</td>
+            <td>3.672.037</td>
+            <td>45.188.573</td>
+        </tr>
+        <tr>
+            <td>2026</td>
+            <td>5.839.093</td>
+            <td>3.545.448</td>
+            <td>3.411.481</td>
+            <td>2.962.489</td>
+            <td>3.249.618</td>
+            <td>2.989.449</td>
+            <td>3.183.449</td>
+            <td>2.902.413</td>
+            <td>2.890.313</td>
+            <td>3.075.824</td>
+            <td>104.580</td>
+            <td>0</td>
+            <td>34.154.158</td>
+        </tr>
+    </tbody>
+</table>
+
+<div id="lista"></div>
+</div>
+
+<!-- Toast -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="toast" class="toast text-bg-success border-0">
+        <div class="d-flex">
+            <div class="toast-body" id="toastMsg">Salvo</div><button class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button></div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script>
+    /* ===== DADOS (extraídos da tela RVP – 3M) =====
+                 formato: cod|descrição|subgrupo|compra|P,M,S,V|badge|estrela|2025 (12 meses + DEV)|2026 (12 meses + DEV)|RES,EST,CD,PED,TRAN,REV,MIN,MAX,AB,SALDO|V.A. (min%,min,max,max%) */
+    const RAW = `
 040710|Bloco autoadesivo 76x76 azul aqua c/90fls HB00465019 CX 1 UN|76x76|Compra - 29/09/2026|0,41,0,169|2|5|1451,682,348,268,260,242,203,237,168,173,187,226,10|1252,420,277,180,155,142,145,222,131,140,8,226,15|0,2110,627,4,19,3,286,668,0,0|142,693,1772,165
 040711|Bloco autoadesivo 76x76 lilac c/90fls HB00465721 CX 1 UN|76x76|Compra - 29/09/2026|0,210,1,0|0|5|9554,3688,1856,1430,1376,1111,908,865,759,733,836,1456,68|8250,2632,1456,810,686,533,641,713,502,611,28,1456,59|0,13208,2376,0,1,2,641,1542,0,0|576,4336,10958,611
 040712|Bloco autoadesivo 76x76 azul elétrico c/90fls HB00465024 CX 1 UN|76x76|Compra - 29/09/2026|0,43,0,168|2|5|1344,761,480,470,436,363,431,358,400,283,361,423,27|1501,587,485,335,309,211,354,273,232,217,2,423,16|0,2853,1125,0,5,1,418,972,0,0|102,846,2125,119
@@ -1037,56 +1038,56 @@ render();
 041136|Bloco autoadesivo Post-it 76x76 pop-up az.céu c/90fls PT 1 UN|76x76|Compra - 29/09/2026|0,10,0,201|0|5|893,469,366,332,301,272,285,261,317,341,304,287,18|939,425,344,250,252,227,247,233,225,196,7,287,34|0,1984,764,0,9,2,439,952,0,0|51,665,1624,71
 `.trim().split('\n');
 
-        const n = s => s.split(',').map(Number);
-        const produtos = RAW.map(l => {
-            const [cod, desc, sub, compra, pmsv, badge, star, h25, h26, est, va] = l.split('|');
-            const a25 = h25 === '-' ? null : n(h25),
-                a26 = n(h26),
-                e = n(est);
-            return {
-                cod,
-                desc,
-                sub,
-                compra,
-                pmsv: n(pmsv),
-                badge,
-                star,
-                h25: a25 ? a25.slice(0, 12) : null,
-                dev25: a25 ? a25[12] : 0,
-                h26: a26.slice(0, 12),
-                dev26: a26[12],
-                res: e[0],
-                est: e[1],
-                cd: e[2],
-                ped: e[3],
-                tran: e[4],
-                rev: e[5],
-                min: e[6],
-                max: e[7],
-                ab: e[8],
-                saldo: e[9],
-                va: va ? n(va) : null,
-                cfg: {
-                    tipo: 'produto',
-                    espelho: null,
-                    reserva20: false,
-                    salvo: false
-                }
-            };
-        });
-        const MES_ATUAL = 10; // novembro (índice) – mês corrente, parcial
-        const sum = a => a.reduce((x, y) => x + y, 0);
-        const fmt = v => v.toLocaleString('pt-BR');
-        const MESES = ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ'];
+    const n = s => s.split(',').map(Number);
+    const produtos = RAW.map(l => {
+        const [cod, desc, sub, compra, pmsv, badge, star, h25, h26, est, va] = l.split('|');
+        const a25 = h25 === '-' ? null : n(h25),
+            a26 = n(h26),
+            e = n(est);
+        return {
+            cod,
+            desc,
+            sub,
+            compra,
+            pmsv: n(pmsv),
+            badge,
+            star,
+            h25: a25 ? a25.slice(0, 12) : null,
+            dev25: a25 ? a25[12] : 0,
+            h26: a26.slice(0, 12),
+            dev26: a26[12],
+            res: e[0],
+            est: e[1],
+            cd: e[2],
+            ped: e[3],
+            tran: e[4],
+            rev: e[5],
+            min: e[6],
+            max: e[7],
+            ab: e[8],
+            saldo: e[9],
+            va: va ? n(va) : null,
+            cfg: {
+                tipo: 'produto',
+                espelho: null,
+                reserva20: false,
+                salvo: false
+            }
+        };
+    });
+    const MES_ATUAL = 10; // novembro (índice) – mês corrente, parcial
+    const sum = a => a.reduce((x, y) => x + y, 0);
+    const fmt = v => v.toLocaleString('pt-BR');
+    const MESES = ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ'];
 
-        function mediaGrupo(sub, exceto) {
-            const ps = produtos.filter(p => p.sub === sub && p.cod !== exceto);
-            if (!ps.length) return null;
-            return MESES.map((_, i) => Math.round(sum(ps.map(p => p.h26[i])) / ps.length));
-        }
+    function mediaGrupo(sub, exceto) {
+        const ps = produtos.filter(p => p.sub === sub && p.cod !== exceto);
+        if (!ps.length) return null;
+        return MESES.map((_, i) => Math.round(sum(ps.map(p => p.h26[i])) / ps.length));
+    }
 
-        function linhaHist(label, filial, arr, cls = '') {
-            return `<tr class="${cls}"><td>${label}</td><td>${filial}</td>${arr.map((v,i)=>`<td class="${label==='2026'&&i===11?'proj':''}">${v}</td>`).join('')}<td>${sum(arr)}</td>`;
+    function linhaHist(label, filial, arr, cls = '') {
+        return `<tr class="${cls}"><td>${label}</td><td>${filial}</td>${arr.map((v,i)=>`<td class="${label==='2026'&&i===11?'proj':''}">${v}</td>`).join('')}<td>${sum(arr)}</td>`;
 }
 
 function render(){
@@ -1231,7 +1232,7 @@ document.getElementById('btnSalvarTodos').addEventListener('click',()=>{
   toast(ok+' produto(s) salvos');
 });
 render();
-    </script>
+</script>
 </body>
 
 </html>
